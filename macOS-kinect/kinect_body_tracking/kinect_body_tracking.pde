@@ -16,16 +16,15 @@ void setup() {
   kinect.enableUser();
 }
 
+// We should use the confidence to get more accurate data, but for MVP
+// we will not
+// Best interval = 0.5
 PVector getDot(int userId, int SimpleJoint) {
   PVector joint = new PVector();
   float confidence = kinect.getJointPositionSkeleton(userId, SimpleJoint, joint);
-  if (confidence > 0.005) {
-    PVector convertedJoint = new PVector();
-    kinect.convertRealWorldToProjective(joint, convertedJoint);
-    return convertedJoint;
-  } else {
-    return null;
-  }
+  PVector convertedJoint = new PVector();
+  kinect.convertRealWorldToProjective(joint, convertedJoint);
+  return convertedJoint;
 }
 
 void draw() {
@@ -53,7 +52,9 @@ void draw() {
         ellipse(head.x, head.y, 10, 10);
         msg.add(head.x);
         msg.add(head.y);
+        msg.add(head.z);
       }
+
 
       PVector leftShoulder = getDot(userId, SimpleOpenNI.SKEL_LEFT_SHOULDER);
       if (!(leftShoulder == null)) {
@@ -62,6 +63,7 @@ void draw() {
         ellipse(leftShoulder.x, leftShoulder.y, 10, 10);
         msg.add(leftShoulder.x);
         msg.add(leftShoulder.y);
+        msg.add(leftShoulder.z);
       }
 
       PVector rightShoulder = getDot(userId, SimpleOpenNI.SKEL_RIGHT_SHOULDER);
@@ -71,6 +73,7 @@ void draw() {
         ellipse(rightShoulder.x, rightShoulder.y, 10, 10);
         msg.add(rightShoulder.x);
         msg.add(rightShoulder.y);
+        msg.add(rightShoulder.z);
       }
 
       PVector leftHand = getDot(userId, SimpleOpenNI.SKEL_LEFT_HAND);
@@ -78,12 +81,18 @@ void draw() {
         all = all + 1;
         fill(255, 0, 0);
         ellipse(leftHand.x, leftHand.y, 10, 10);
+        msg.add(leftHand.x);
+        msg.add(leftHand.y);
+        msg.add(leftHand.z);
       }
 
       PVector rightHand = getDot(userId, SimpleOpenNI.SKEL_RIGHT_HAND);
       if (!(rightHand == null)) {
         fill(255, 0, 0);
         ellipse(rightHand.x, rightHand.y, 10, 10);
+        msg.add(rightHand.x);
+        msg.add(rightHand.y);
+        msg.add(rightHand.z);
       }
 
       PVector leftElbow = getDot(userId, SimpleOpenNI.SKEL_LEFT_ELBOW);
@@ -91,6 +100,9 @@ void draw() {
         all = all + 1;
         fill(255, 0, 0);
         ellipse(leftElbow.x, leftElbow.y, 10, 10);
+        msg.add(leftElbow.x);
+        msg.add(leftElbow.y);
+        msg.add(leftElbow.z);
       }
 
       PVector rightElbow = getDot(userId, SimpleOpenNI.SKEL_RIGHT_ELBOW);
@@ -98,11 +110,13 @@ void draw() {
         all = all + 1;
         fill(255, 0, 0);
         ellipse(rightElbow.x, rightElbow.y, 10, 10);
+        msg.add(rightElbow.x);
+        msg.add(rightElbow.y);
+        msg.add(rightElbow.z);
       }
-      
-      oscP5.send(msg, dest);
 
-    }
+      oscP5.send(msg, dest);
+    } 
   }
 }
 //// user-tracking callbacks! for old version on OPENNI
