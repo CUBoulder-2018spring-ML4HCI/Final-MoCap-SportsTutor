@@ -43,38 +43,38 @@ void setup() {
   List l = Arrays.asList(Serial.list());
   numPorts = l.size();
   cp5.addScrollableList("Port") //Create drop-down menu
-     .setPosition(10, 60)
-     .setSize(200, 100)
-     .setBarHeight(20)
-     .setItemHeight(20)
-     .addItems(l)
-     ;
+    .setPosition(10, 60)
+      .setSize(200, 100)
+        .setBarHeight(20)
+          .setItemHeight(20)
+            .addItems(l)
+              ;
   defaultColor = cp5.getColor();
-     
+
   //Set up OSC:
-  oscP5 = new OscP5(this,9000); //This port isn't important (we're not receiving OSC)
-  dest = new NetAddress("127.0.0.1",6448); //Send to port 6448
+  oscP5 = new OscP5(this, 9000); //This port isn't important (we're not receiving OSC)
+  dest = new NetAddress("127.0.0.1", 6448); //Send to port 6448
 }
 
 //Called when new port (n-th) selected in drop-down
 void Port(int n) {
- // println(n, cp5.get(ScrollableList.class, "Port").getItem(n));
+  // println(n, cp5.get(ScrollableList.class, "Port").getItem(n));
   CColor c = new CColor();
-  c.setBackground(color(255,0,0));
-  
+  c.setBackground(color(255, 0, 0));
+
   //Color all non-selected ports the default color in drop-down list
   for (int i = 0; i < numPorts; i++) {
-      cp5.get(ScrollableList.class, "Port").getItem(i).put("color", defaultColor);
+    cp5.get(ScrollableList.class, "Port").getItem(i).put("color", defaultColor);
   }
-  
+
   //Color the selected item red in drop-down list
   cp5.get(ScrollableList.class, "Port").getItem(n).put("color", c);
-  
+
   //If we were previously receiving on a port, stop receiving
   if (gettingData) {
     myPort.stop();
   }
-  
+
   //Finally, select new port:
   myPort = new Serial(this, Serial.list()[n], 9600); //Using 9600 baud rate
   myPort.clear(); //Throw out first reading, in case we're mid-feature vector
@@ -101,18 +101,27 @@ void draw() {
 
 //Parses serial data to get button & accel values, also buffers accels if we're in button-segmented mode
 void getData() {
-  while (myPort.available() > 0 ) { 
+  while (myPort.available () > 0 ) { 
     serial = myPort.readStringUntil(end);
   }
   if (serial != null) {  //if the string is not empty, print the following
-    
+
     /*  Note: the split function used below is not necessary if sending only a single variable. However, it is useful for parsing (separating) messages when
-        reading from multiple inputs in Arduino. Below is example code for an Arduino sketch
-    */
-    
+     reading from multiple inputs in Arduino. Below is example code for an Arduino sketch
+     */
+    if (serial[0] == 'a') {
+      serial = serial.replace("a: ", "");
+      serial = serial.replace(":0", "");
       String[] a = split(serial, ',');  //a new array (called 'a') that stores values into separate cells (separated by commas specified in your Arduino program)
       numFeatures = a.length;
       sendFeatures(a);
+    } else {
+      serial = serial.replace("b: ", "");
+      serial = serial.replace(":0", "");
+      String[] b = split(serial, ',');
+      numFeatures = b.length;
+      sendFeatures(b);
+    }
   }
 }
 
@@ -127,7 +136,9 @@ void sendFeatures(String[] s) {
     }
     oscP5.send(msg, dest);
     featureString = sb.toString();
-  } catch (Exception ex) {
-     println("Encountered exception parsing string: " + ex); 
+  } 
+  catch (Exception ex) {
+    println("Encountered exception parsing string: " + ex);
   }
 }
+
