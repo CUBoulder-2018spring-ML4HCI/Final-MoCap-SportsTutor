@@ -27,7 +27,7 @@ boolean gettingData = false; //True if we've selected a port to read from
 OscP5 oscP5;
 NetAddress dest;
 
-int numFeatures = 0;
+int numFeatures = 6;
 String featureString = "";
 
 void setup() {
@@ -80,7 +80,7 @@ void Port(int n) {
   myPort.clear(); //Throw out first reading, in case we're mid-feature vector
   gettingData = true;
   serial = null; //Initialise serial string
-  numFeatures = 0;
+  numFeatures = 6;
 }
 
 //Called in a loop at frame rate (100 Hz)
@@ -99,6 +99,17 @@ void draw() {
   }
 }
 
+Stack<String[]> aStack = new Stack();
+Stack<String[]> bStack = new Stack();
+String[] a;
+String[] b;
+String[] c;
+
+String[] concat_ab(String[] a, String[] b){
+ return concat(a, b);
+}
+
+
 //Parses serial data to get button & accel values, also buffers accels if we're in button-segmented mode
 void getData() {
   while (myPort.available() > 0 ) { 
@@ -109,19 +120,32 @@ void getData() {
     /*  Note: the split function used below is not necessary if sending only a single variable. However, it is useful for parsing (separating) messages when
         reading from multiple inputs in Arduino. Below is example code for an Arduino sketch
     */
-    print(serial.substring(0,0));
-      if (serial.substring(0,0) == "a") {
+      //print(serial.substring(0,1));
+      if (serial.substring(0,1).compareTo("a") == 0) {
       serial = serial.replace("a: ", "");
-      serial = serial.replace(":0", "");
-      String[] a = split(serial, ',');  //a new array (called 'a') that stores values into separate cells (separated by commas specified in your Arduino program)
-      numFeatures = a.length;
-      sendFeatures(a);
+      a = split(serial, ',');  //a new array (called 'a') that stores values into separate cells (separated by commas specified in your Arduino program)
+      //numFeatures = a.length;
+      //if (bStack.empty()){
+      // aStack.push(a); 
+      //}else{
+      //  String[] concated_features = concat_ab(a, bStack.pop());
+      //  sendFeatures(concated_features);
+      //}
+      //sendFeatures(a);
     } else {
       serial = serial.replace("b: ", "");
-      //serial = serial.replace(":0", "");
-      String[] b = split(serial, ',');
-      numFeatures = b.length;
-      sendFeatures(b);
+      b = split(serial, ',');
+      //if (aStack.empty()){
+      // bStack.push(b); 
+      //}else{
+      //  String[] concated_features = concat_ab(a, bStack.pop());
+      //  sendFeatures(concated_features);
+      //}
+      
+      if (a != null && b != null ){
+       c = concat(a, b);
+       sendFeatures(c);
+      }
     }
   }
 }
