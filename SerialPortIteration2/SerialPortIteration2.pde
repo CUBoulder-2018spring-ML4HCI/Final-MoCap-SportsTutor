@@ -76,7 +76,7 @@ void Port(int n) {
   }
   
   //Finally, select new port:
-  myPort = new Serial(this, Serial.list()[n], 115200); //Using 9600 baud rate
+  myPort = new Serial(this, Serial.list()[n], 115200); //Using 11520 baud rate
   myPort.clear(); //Throw out first reading, in case we're mid-feature vector
   gettingData = true;
   serial = null; //Initialise serial string
