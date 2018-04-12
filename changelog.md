@@ -1,5 +1,6 @@
 # April 5, 2018
 ## Overall Changes
+[A link to a video documenting our progress.](https://youtu.be/B-Ed5MmvXd0)
 We have configured a series of micro:bits to act as radio receivers and transmitters in order to allow our users to have more precise data collection methods
 without letting wires get in the way. We also forwarded the data received into Wekinator for use in further analysis.
 The data provided by these recivers will allow our system to tell the user exactly what they can change to produce a better
