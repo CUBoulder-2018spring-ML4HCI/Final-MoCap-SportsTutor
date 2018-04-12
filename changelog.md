@@ -1,3 +1,17 @@
+# April 12, 2018
+## Overall Changes
+[A link to a video documenting our progress.](link)  
+We began implementing a simple user interface to make using our product more intuitive. We also began incoroporating an exterior machine learning library to build DTW directly into our system instead of relying as heavily on Wekinator as we have been. We made the decision to use a third-party, open-source DTW library because it allows much more detailed control of our inputs, processing, and outputs than Wekinator does. 
+
+## Invididual
+Michael, Jon, Jon, Christoph: Worked on implementing DTW directly into our end product. Helped construct the UI.  
+ 
+Stacia: Focused largely on the UI and began constructing the overall architecture of the end product. 
+
+## Continuing Work
+* Develop a system for persistent data storage. 
+* Continue working on making the feedback system more detailed. 
+
 # April 5, 2018
 ## Overall Changes
 [A link to a video documenting our progress.](https://youtu.be/B-Ed5MmvXd0)
