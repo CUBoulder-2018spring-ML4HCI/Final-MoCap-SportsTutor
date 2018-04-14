@@ -1,0 +1,3 @@
+﻿  SkeletonBasics.cpp
+c:\users\jon\documents\github\i-featext-near-v2\skeletonbasics-d2d\skeletonbasics.cpp(193): warning C4305: 'initializing': truncation from 'double' to 'float'
+  SkeletonBasics-D2D.vcxproj -> C:\Users\Jon\Documents\GitHub\I-FeatExt-Near-v2\SkeletonBasics-D2D\Debug\SkeletonBasics-D2D.exe
