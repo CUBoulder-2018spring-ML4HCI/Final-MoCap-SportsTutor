@@ -17,11 +17,19 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         """
         self.continue_button.clicked.connect(self.continueClicked)
         self.restart_button.clicked.connect(self.returnClicked)
+<<<<<<< HEAD
+        self.stackedWidget.setCurrentIndex(0)
+
+    def startClicked(self):
+        self.stackedWidget.setCurrentIndex(1)
+    def continueClicked(self):
+=======
         """
         
     def newRecordingClicked(self):
         return 1
     def returningUserClicked(self):
+>>>>>>> 7f7f1bee99381ea9087a3f4add8a829e4d20283f
         self.stackedWidget.setCurrentIndex(2)
     def newUserClicked(self):
         self.stackedWidget.setCurrentIndex(1)
