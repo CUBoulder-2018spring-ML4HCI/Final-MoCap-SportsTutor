@@ -6,13 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-<<<<<<< HEAD
-    <width>1440</width>
-    <height>900</height>
-=======
     <width>996</width>
-    <height>664</height>
->>>>>>> 7f7f1bee99381ea9087a3f4add8a829e4d20283f
+    <height>679</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,38 +17,25 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-<<<<<<< HEAD
-      <x>60</x>
-      <y>80</y>
-      <width>801</width>
-      <height>571</height>
-=======
       <x>-30</x>
       <y>0</y>
-      <width>991</width>
-      <height>611</height>
->>>>>>> 7f7f1bee99381ea9087a3f4add8a829e4d20283f
+      <width>1031</width>
+      <height>681</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image:url('pics/background.jpg')</string>
+     <string notr="true">background-color:rgb(255, 241, 255)</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QPushButton" name="returning_button">
       <property name="geometry">
        <rect>
-<<<<<<< HEAD
-        <x>120</x>
-        <y>290</y>
-        <width>231</width>
-=======
         <x>340</x>
         <y>440</y>
         <width>351</width>
->>>>>>> 7f7f1bee99381ea9087a3f4add8a829e4d20283f
         <height>81</height>
        </rect>
       </property>
@@ -63,25 +45,15 @@
        </font>
       </property>
       <property name="text">
-<<<<<<< HEAD
-       <string>Coach</string>
-=======
        <string>Returning User</string>
->>>>>>> 7f7f1bee99381ea9087a3f4add8a829e4d20283f
       </property>
      </widget>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-<<<<<<< HEAD
-        <x>230</x>
-        <y>120</y>
-        <width>311</width>
-=======
         <x>310</x>
         <y>140</y>
         <width>411</width>
->>>>>>> 7f7f1bee99381ea9087a3f4add8a829e4d20283f
         <height>111</height>
        </rect>
       </property>
@@ -96,41 +68,12 @@
        <string>Virtual Coach</string>
       </property>
      </widget>
-<<<<<<< HEAD
-     <widget class="QPushButton" name="start_button_2">
-      <property name="geometry">
-       <rect>
-        <x>420</x>
-        <y>290</y>
-        <width>231</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>User</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="page_2">
-     <widget class="QPushButton" name="continue_button">
-      <property name="geometry">
-       <rect>
-        <x>290</x>
-        <y>350</y>
-        <width>231</width>
-=======
      <widget class="QPushButton" name="new_button">
       <property name="geometry">
        <rect>
         <x>340</x>
         <y>330</y>
         <width>351</width>
->>>>>>> 7f7f1bee99381ea9087a3f4add8a829e4d20283f
         <height>81</height>
        </rect>
       </property>
@@ -143,39 +86,13 @@
        <string>New User</string>
       </property>
      </widget>
-<<<<<<< HEAD
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>-20</y>
-        <width>651</width>
-        <height>571</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap>pics/steup_small.png</pixmap>
-      </property>
-     </widget>
-     <zorder>label_2</zorder>
-     <zorder>continue_button</zorder>
-=======
->>>>>>> 7f7f1bee99381ea9087a3f4add8a829e4d20283f
     </widget>
     <widget class="QWidget" name="page_2">
      <widget class="QPushButton" name="continue_button">
       <property name="geometry">
        <rect>
-<<<<<<< HEAD
-        <x>560</x>
-        <y>490</y>
-=======
         <x>410</x>
         <y>510</y>
->>>>>>> 7f7f1bee99381ea9087a3f4add8a829e4d20283f
         <width>231</width>
         <height>81</height>
        </rect>
@@ -186,132 +103,6 @@
        </font>
       </property>
       <property name="text">
-<<<<<<< HEAD
-       <string>Back</string>
-      </property>
-     </widget>
-     <widget class="QDial" name="dial">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>450</y>
-        <width>141</width>
-        <height>111</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="freeThrow">
-      <property name="geometry">
-       <rect>
-        <x>310</x>
-        <y>170</y>
-        <width>191</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Basketball Free Throw</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="tennisServe">
-      <property name="geometry">
-       <rect>
-        <x>310</x>
-        <y>250</y>
-        <width>191</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Tennis Serve</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="golfSwing">
-      <property name="geometry">
-       <rect>
-        <x>310</x>
-        <y>340</y>
-        <width>191</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Golf Swing</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>360</x>
-        <y>40</y>
-        <width>91</width>
-        <height>111</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>30</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Coach</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="page_4">
-     <widget class="QPushButton" name="golfSwing_2">
-      <property name="geometry">
-       <rect>
-        <x>300</x>
-        <y>350</y>
-        <width>191</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Golf Swing</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_4">
-      <property name="geometry">
-       <rect>
-        <x>360</x>
-        <y>50</y>
-        <width>111</width>
-        <height>111</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>30</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>User</string>
-      </property>
-     </widget>
-     <widget class="QDial" name="dial_2">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>460</y>
-        <width>141</width>
-        <height>111</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="restart_button_2">
-      <property name="geometry">
-       <rect>
-        <x>570</x>
-        <y>490</y>
-        <width>231</width>
-        <height>81</height>
-=======
        <string>Continue</string>
       </property>
      </widget>
@@ -322,59 +113,9 @@
         <y>0</y>
         <width>601</width>
         <height>511</height>
->>>>>>> 7f7f1bee99381ea9087a3f4add8a829e4d20283f
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="text">
-<<<<<<< HEAD
-       <string>Back</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="tennisServe_2">
-      <property name="geometry">
-       <rect>
-        <x>300</x>
-        <y>260</y>
-        <width>191</width>
-        <height>71</height>
        </rect>
       </property>
       <property name="text">
-       <string>Tennis Serve</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="freeThrow_2">
-      <property name="geometry">
-       <rect>
-        <x>300</x>
-        <y>180</y>
-        <width>191</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Free Throw</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="page_5">
-     <widget class="QListView" name="listView">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>350</y>
-        <width>531</width>
-        <height>192</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton">
-=======
        <string/>
       </property>
       <property name="pixmap">
@@ -386,86 +127,21 @@
     </widget>
     <widget class="QWidget" name="page_3">
      <widget class="QDialogButtonBox" name="buttonBox">
->>>>>>> 7f7f1bee99381ea9087a3f4add8a829e4d20283f
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>320</y>
-        <width>113</width>
-        <height>32</height>
+        <x>410</x>
+        <y>510</y>
+        <width>193</width>
+        <height>28</height>
        </rect>
       </property>
-      <property name="text">
-       <string>Start</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>320</y>
-        <width>113</width>
-        <height>32</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Stop</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_5">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>240</y>
-        <width>111</width>
-        <height>111</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>30</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Record</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="restart_button_3">
-      <property name="geometry">
-       <rect>
-        <x>570</x>
-        <y>470</y>
-        <width>231</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Back</string>
+      <property name="standardButtons">
+       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
       </property>
      </widget>
     </widget>
    </widget>
   </widget>
-<<<<<<< HEAD
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1440</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-=======
->>>>>>> 7f7f1bee99381ea9087a3f4add8a829e4d20283f
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionNew_Recording">
    <property name="text">
