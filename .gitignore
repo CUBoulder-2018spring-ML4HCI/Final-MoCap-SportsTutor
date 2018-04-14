@@ -1,3 +1,10 @@
 Python/.metadata/
 Python/SportsTutor/.settings/
 Python/SportsTutor/__pycache__/
+*.exe
+*.tlog
+*.1.tlog
+*.log
+SkeletonBasics-D2D/Debug/*.obj
+SkeletonBasics-D2D/.vs/*
+*.obj
