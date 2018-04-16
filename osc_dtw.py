@@ -2,6 +2,7 @@ import numpy as np
 import argparse
 
 from dtw import dtw
+from threading import Thread
 from pythonosc import dispatcher
 from pythonosc import osc_server
 from pythonosc import osc_message_builder
@@ -23,9 +24,25 @@ Y = []
 temp_holder = []
 END_SAMPLE = False
 
+""" Make cmd run the processing script to stream data to stdout"""
+def get_data_gen(cmd):
+    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    stdout = []
+    while True:
+        line = p.stdout.readline()
+        stdout.append(line)
+        print line
+        if line == '' and p.poll() != None:
+            break
+        yield ''.join(stdout)
+
 
 def stop(*args):
     END_SAMPLE = True
+    if (not training_samples):
+        temp_holder_copy = list(temp_holder)
+        training_samples.append(temp_holder_copy)
+        temp_holder.clear()
     if not (Y == []):
         dtws = []
         for x in training_samples:
@@ -35,6 +52,7 @@ def stop(*args):
 
         min_dist = min(dtws)
         print ("MINIMUM DISTANCE: ", min_dist)
+    print (training_samples)
 
 def start(*args):
     END_SAMPLE = False
@@ -42,11 +60,7 @@ def start(*args):
 # Get training data via OSC and put into global matrix
 def get_train_data(*args):
     x = args[1:]
-    if END_SAMPLE:
-        training_samples.append(temp_holder)
-        temp_holder.clear()
-    else:
-        temp_holder.append(list(x))
+    temp_holder.append(list(x))
 
 # Get testing data and perform DTW w/ respect to training
 def test(*args):
@@ -55,7 +69,7 @@ def test(*args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--ip", default="127.0.0.1", help="The ip to listen on")
-    parser.add_argument("--port", type=int, default=8000, help="The port to listen on")
+    parser.add_argument("--port", type=int, default=6448, help="The port to listen on")
     args = parser.parse_args()
 
     dispatcher = dispatcher.Dispatcher()
