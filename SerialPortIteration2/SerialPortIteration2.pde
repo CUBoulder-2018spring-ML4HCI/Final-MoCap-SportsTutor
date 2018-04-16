@@ -151,7 +151,7 @@ void getData() {
 }
 
 void sendFeatures(String[] s) {
-  OscMessage msg = new OscMessage("/wek/inputs");
+  OscMessage msg = new OscMessage("/wek/inputs/b");
   StringBuilder sb = new StringBuilder();
   try {
     for (int i = 0; i < s.length; i++) {
