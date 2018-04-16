@@ -11,18 +11,24 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         QtWidgets.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
-        # self.returning_button.clicked.connect(self.returningUserClicked)
-        # self.new_button.clicked.connect(self.newUserClicked)
-        # self.actionNew_Recording.triggered.connect(self.newRecordingClicked)
+
+
         self.continue_button.clicked.connect(self.nextPage)
         self.BackButton.clicked.connect(self.prevPage)
         self.BackButton_2.clicked.connect(self.prevPage)
         self.BackButton_3.clicked.connect(self.prevPage)
 
+        self.coachButton.clicked.connect(self.coachPage)
+        self.userButton.clicked.connect(self.userPage)
+
     def nextPage(self):
         self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex()+1)
     def prevPage(self):
         self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex()-1)
+    def coachPage(self):
+        self.stackedWidget.setCurrentIndex(2)
+    def userPage(self):
+        self.stackedWidget.setCurrentIndex(3)
     def newRecordingClicked(self):
         return 1
     def returningUserClicked(self):

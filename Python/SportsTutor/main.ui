@@ -18,10 +18,16 @@
     <property name="geometry">
      <rect>
       <x>-10</x>
-      <y>20</y>
+      <y>40</y>
       <width>1031</width>
       <height>681</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1031</width>
+      <height>16777215</height>
+     </size>
     </property>
     <property name="styleSheet">
      <string notr="true">QToolTip {
@@ -1248,27 +1254,11 @@ QDateEdit::down-arrow:focus {
      <number>0</number>
     </property>
     <widget class="QWidget" name="page">
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>50</y>
-        <width>601</width>
-        <height>511</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap>../../../Final/Final-MoCap-SportsTutor/Python/SportsTutor/pics/steup_small.png</pixmap>
-      </property>
-     </widget>
      <widget class="QPushButton" name="continue_button">
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>380</y>
+        <x>390</x>
+        <y>570</y>
         <width>231</width>
         <height>81</height>
        </rect>
@@ -1280,6 +1270,22 @@ QDateEdit::down-arrow:focus {
       </property>
       <property name="text">
        <string>Continue</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>10</y>
+        <width>611</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>pics/steup_small.png</pixmap>
       </property>
      </widget>
     </widget>
@@ -1304,7 +1310,7 @@ QDateEdit::down-arrow:focus {
        <string>Virtual Coach</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="new_button">
+     <widget class="QPushButton" name="coachButton">
       <property name="geometry">
        <rect>
         <x>160</x>
@@ -1322,7 +1328,7 @@ QDateEdit::down-arrow:focus {
        <string>Coach</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="new_button_2">
+     <widget class="QPushButton" name="userButton">
       <property name="geometry">
        <rect>
         <x>550</x>
