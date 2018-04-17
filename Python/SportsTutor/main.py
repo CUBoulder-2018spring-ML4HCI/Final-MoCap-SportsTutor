@@ -18,6 +18,8 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.BackButton.clicked.connect(self.prevPage)
         self.BackButton_2.clicked.connect(self.prevPage)
         self.BackButton_3.clicked.connect(self.prevPage)
+        self.BackButton_7.clicked.connect(self.prevPage)
+        # self.BackButton_5.clicked.connect(self.prevPage)
 
         self.coachButton.clicked.connect(self.coachPage)
         self.userButton.clicked.connect(self.userPage)
@@ -40,5 +42,6 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     window = MyApp()
+    window.setFixedSize(1031, 720)
     window.show()
     sys.exit(app.exec_())
