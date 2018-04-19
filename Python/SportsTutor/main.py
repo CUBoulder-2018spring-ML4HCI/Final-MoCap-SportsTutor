@@ -2,18 +2,21 @@ import sys
 from PyQt5 import QtCore, QtGui, uic, QtWidgets
 from PyQt5 import *
 
+
+import backend
+
 qtCreatorFile = "main.ui" # Enter file here.
- 
+
+pipe = open("/tmp/un_pipe", "r")
+
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
-
-
 
 running = False
 
-def send():
-    while True: # Thread will run infinitely in the background
-        if running:
-            print("send")
+# def send():
+#     while True: # Thread will run infinitely in the background
+#         if running:
+#             print("send")
 
 
 class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -21,8 +24,6 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         QtWidgets.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
-
-
 
         self.continue_button.clicked.connect(self.nextPage)
         self.continue_button_2.clicked.connect(self.nextPage)
@@ -33,11 +34,16 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.coachButton.clicked.connect(self.coachPage)
         self.userButton.clicked.connect(self.userPage)
         super(type(self.recordButton), self.recordButton).setAutoRepeat(True)
-        self.recordButton.clicked.connect(self.kill)
+        # hold down button
+        super(type(self.recordButton), self.recordButton).setAutoRepeatInterval(10) 
+        # speed of the hold down function
+        self.recordButton.pressed.connect(self.kill)
+        self.recordButton.released.connect(self.me)
 
     def kill(self):
-        print("kill me")
-
+        backend.get_training_data()
+    def me(self):
+        backend.stop()
     def nextPage(self):
         self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex()+1)
     def prevPage(self):
@@ -46,10 +52,6 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.stackedWidget.setCurrentIndex(3)
     def userPage(self):
         self.stackedWidget.setCurrentIndex(4)
-    def newRecordingClicked(self):
-        while True: # Thread will run infinitely in the background
-            if running:
-                print("send")
     def returningUserClicked(self):
         self.stackedWidget.setCurrentIndex(2)
     def newUserClicked(self):
