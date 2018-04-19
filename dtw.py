@@ -1,5 +1,6 @@
 from numpy import array, zeros, argmin, inf, equal, ndim
 from scipy.spatial.distance import cdist
+import time
 
 def dtw(x, y, dist):
     """
@@ -88,8 +89,8 @@ def _traceback(D):
 if __name__ == '__main__':
     if 1: # 1-D numeric
         from sklearn.metrics.pairwise import manhattan_distances
-        x = [0, 0, 1, 1, 2, 4, 2, 1, 2, 0]
-        y = [1, 1, 1, 2, 2, 2, 2, 3, 2, 0]
+        x = [0, 0, 1, 1, 2, 4, 2, 1, 2, 0] * 15
+        y = [1, 1, 1, 2, 2, 2, 2, 3, 2, 0] * 3
         dist_fun = manhattan_distances
     elif 0: # 2-D numeric
         from sklearn.metrics.pairwise import euclidean_distances
@@ -108,7 +109,12 @@ if __name__ == '__main__':
 
     #x = [[1, 0, 1], [1,1,1], [2,2,2], [3,3,3]]
     #y = [[0, 0, 0], [2,3,4]]
-    dist, cost, acc, path = dtw(x, y, dist_fun)
+
+    s_time = time.time()
+    for i in range(0, 23):
+        dist, cost, acc, path = dtw(x, y, dist_fun)
+    e_time = time.time()
+    print("runtime: " +  str(e_time - s_time) + "s")
 
     # vizualize
     from matplotlib import pyplot as plt

@@ -20,7 +20,7 @@ static const float g_TrackedBoneThickness = 6.0f;
 static const float g_InferredBoneThickness = 1.0f;
 
 //OSCPACKET CODE
-#define ADDRESS "10.202.66.222"
+#define ADDRESS "10.201.0.33"
 #define PORT 6448
 #define OUTPUT_BUFFER_SIZE 1024
 
@@ -181,57 +181,33 @@ void sendOSC(const NUI_SKELETON_DATA & skel) {
 
 	char buffer[OUTPUT_BUFFER_SIZE];
 	osc::OutboundPacketStream p(buffer, OUTPUT_BUFFER_SIZE);
+		
+	float val1 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].x * 100;
+	float val2 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].y * 100;
+	float val3 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].z * 100;
+	float val4 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].x * 100;
+	float val5 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].y * 100;
+	float val6 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].z * 100;
+	float val7 = skel.SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_LEFT].x * 100;
+	float val8 = skel.SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_LEFT].y * 100;
+	float val9 = skel.SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_LEFT].z * 100;
+	float val10 = skel.SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_RIGHT].x * 100;
+	float val11 = skel.SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_RIGHT].y * 100;
+	float val12 = skel.SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_RIGHT].z * 100;
+	float val13 = skel.SkeletonPositions[NUI_SKELETON_POSITION_ELBOW_LEFT].x * 100;
+	float val14 = skel.SkeletonPositions[NUI_SKELETON_POSITION_ELBOW_LEFT].y * 100;
+	float val15 = skel.SkeletonPositions[NUI_SKELETON_POSITION_ELBOW_LEFT].z * 100;
+	float val16 = skel.SkeletonPositions[NUI_SKELETON_POSITION_ELBOW_RIGHT].x * 100;
+	float val17 = skel.SkeletonPositions[NUI_SKELETON_POSITION_ELBOW_RIGHT].y* 100;
+	float val18 = skel.SkeletonPositions[NUI_SKELETON_POSITION_ELBOW_RIGHT].z * 100;
 
-	bool doTest = false;
-	bool rightHandOnly = false;
-
-	if (doTest) {
-		float val1 = 3.0;
-		float val2 = 0.5;
-		float val3 = 2.0;
-		float val4 = 1.5;
-		float val5 = 10.1;
-
-		p << osc::BeginBundleImmediate
-			<< osc::BeginMessage("/wek/inputs/a")
-			<< val1 << val2 << val3 << val4 << val5 << osc::EndMessage
-			//<< osc::BeginMessage("/wek/inputs")
-			//<< (double)0.23 << osc::EndMessage
-			<< osc::EndBundle;
-	}
-	else if (rightHandOnly){
-		float val4 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].x*100;
-		float val5 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].y*100;
-
-		p << osc::BeginBundleImmediate
-			<< osc::BeginMessage("/wek/inputs/a")
-			<< val4 << val5 << osc::EndMessage
-			//<< osc::BeginMessage("/wek/inputs")
-			//<< (double)0.23 << osc::EndMessage
-			<< osc::EndBundle;
-	}
-	else {
-		float val1 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].x * 100;
-		float val2 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].y * 100;
-		float val3 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].z * 100;
-		float val4 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].x * 100;
-		float val5 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].y * 100;
-		float val6 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].z * 100;
-		float val7 = skel.SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_LEFT].x * 100;
-		float val8 = skel.SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_LEFT].y * 100;
-		float val9 = skel.SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_LEFT].z * 100;
-		float val10 = skel.SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_RIGHT].x * 100;
-		float val11 = skel.SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_RIGHT].y * 100;
-		float val12 = skel.SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_RIGHT].z * 100;
-
-
-		p << osc::BeginBundleImmediate
-			<< osc::BeginMessage("/wek/inputs/a")
-			<< val1 << val2 << val3 << val4 << val5 << val6 << val7 << val8 << val9 << val10 << val11 << val12 << osc::EndMessage
-			//<< osc::BeginMessage("/wek/inputs")
-			//<< (double)0.23 << osc::EndMessage
-			<< osc::EndBundle;
-	}
+	p << osc::BeginBundleImmediate
+		<< osc::BeginMessage("/wek/inputs/a")
+		<< val1 << val2 << val3 << val4 << val5 << val6 
+		<< val7 << val8 << val9 << val10 << val11 << val12 
+		<< val13 << val14 << val15 << val16 << val17 << val18
+		<< osc::EndMessage
+	<< osc::EndBundle;
 
 	transmitSocket.Send(p.Data(), p.Size());
 }
