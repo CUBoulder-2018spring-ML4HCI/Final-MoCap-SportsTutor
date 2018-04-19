@@ -36,11 +36,11 @@
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">stackedWidget-&gt;setStyleSheet(&quot;background-color:black;&quot;);
-stackedWidget-&gt;show();</string>
+     <string notr="true">background-color: rgb(255, 255, 255)
+</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page_5">
      <property name="minimumSize">
@@ -124,7 +124,7 @@ stackedWidget-&gt;show();</string>
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>200</x>
+        <x>250</x>
         <y>10</y>
         <width>611</width>
         <height>531</height>
@@ -134,7 +134,7 @@ stackedWidget-&gt;show();</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>pics/steup_small.png</pixmap>
+       <pixmap>pics/Display-01.png</pixmap>
       </property>
      </widget>
      <widget class="QPushButton" name="BackButton_7">
