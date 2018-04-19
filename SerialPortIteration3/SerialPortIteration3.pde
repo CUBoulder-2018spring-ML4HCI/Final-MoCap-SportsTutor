@@ -50,7 +50,7 @@ void setup() {
      .addItems(l)
      ;
   defaultColor = cp5.getColor();
-     
+
   //Set up OSC:
   oscP5 = new OscP5(this,9000); //This port isn't important (we're not receiving OSC)
   dest = new NetAddress("127.0.0.1",6448); //Send to port 6448
@@ -61,20 +61,20 @@ void Port(int n) {
  // println(n, cp5.get(ScrollableList.class, "Port").getItem(n));
   CColor c = new CColor();
   c.setBackground(color(255,0,0));
-  
+
   //Color all non-selected ports the default color in drop-down list
   for (int i = 0; i < numPorts; i++) {
       cp5.get(ScrollableList.class, "Port").getItem(i).put("color", defaultColor);
   }
-  
+
   //Color the selected item red in drop-down list
   cp5.get(ScrollableList.class, "Port").getItem(n).put("color", c);
-  
+
   //If we were previously receiving on a port, stop receiving
   if (gettingData) {
     myPort.stop();
   }
-  
+
   //Finally, select new port:
   myPort = new Serial(this, Serial.list()[n], 115200); //Using 11520 baud rate
   myPort.clear(); //Throw out first reading, in case we're mid-feature vector
@@ -90,7 +90,7 @@ void draw() {
   fill(0);
   text("Serial to OSC by Rebecca Fiebrink", 10, 10);
   text("Select serial port:", 10, 40);
-  text("Sending " + numFeatures + " values to port 6448, message /wek/inputs", 10, 180); 
+  text("Sending " + numFeatures + " values to port 6448, message /wek/inputs", 10, 180);
   text("Feature values:", 10, 200);
   text(featureString, 25, 220);
 
@@ -112,11 +112,11 @@ String[] concat_ab(String[] a, String[] b){
 
 //Parses serial data to get button & accel values, also buffers accels if we're in button-segmented mode
 void getData() {
-  while (myPort.available() > 0 ) { 
+  while (myPort.available() > 0 ) {
     serial = myPort.readStringUntil(end);
   }
   if (serial != null) {  //if the string is not empty, print the following
-    
+
     /*  Note: the split function used below is not necessary if sending only a single variable. However, it is useful for parsing (separating) messages when
         reading from multiple inputs in Arduino. Below is example code for an Arduino sketch
     */
@@ -126,7 +126,7 @@ void getData() {
       a = split(serial, ',');  //a new array (called 'a') that stores values into separate cells (separated by commas specified in your Arduino program)
       //numFeatures = a.length;
       //if (bStack.empty()){
-      // aStack.push(a); 
+      // aStack.push(a);
       //}else{
       //  String[] concated_features = concat_ab(a, bStack.pop());
       //  sendFeatures(concated_features);
@@ -136,12 +136,12 @@ void getData() {
       serial = serial.replace("b: ", "");
       b = split(serial, ',');
       //if (aStack.empty()){
-      // bStack.push(b); 
+      // bStack.push(b);
       //}else{
       //  String[] concated_features = concat_ab(a, bStack.pop());
       //  sendFeatures(concated_features);
       //}
-      
+
       if (a != null && b != null ){
        c = concat(a, b);
        sendFeatures(c);
@@ -153,18 +153,18 @@ void getData() {
 void sendFeatures(String[] s) {
   OscMessage msg = new OscMessage("/wek/inputs/b");
   StringBuilder sb = new StringBuilder();
-  
+
   try {
     for (int i = 0; i < s.length; i++) {
-      float f = Float.parseFloat(s[i]); 
+      float f = Float.parseFloat(s[i]);
       //msg.add(f);
       sb.append(String.format("%.2f", f)).append(" ");
     }
-    
+
     //oscP5.send(msg, dest);
     featureString = sb.toString();
     println(featureString);
   } catch (Exception ex) {
-     println("Encountered exception parsing string: " + ex); 
+     println("Encountered exception parsing string: " + ex);
   }
 }
