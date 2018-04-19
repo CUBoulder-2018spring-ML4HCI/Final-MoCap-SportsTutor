@@ -9,8 +9,8 @@
 #include "SkeletonBasics.h"
 #include "resource.h"
 
-#include <osc/OscOutboundPacketStream.h>
-#include <ip/UdpSocket.h>
+#include "oscpack/osc/OscOutboundPacketStream.h"
+#include "oscpack/ip/UdpSocket.h"
 
 //#pragma comment(lib, "ws2_32.lib")
 
