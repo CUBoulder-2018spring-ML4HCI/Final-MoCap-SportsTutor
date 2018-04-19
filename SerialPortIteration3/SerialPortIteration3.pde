@@ -1,5 +1,5 @@
 // Gets serial port data (e.g. from Arduino) and sends to Wekinator
-// By Rebecca Fiebrink: October 2017
+// By Rebecca Fiebrink: October 2017 
 // Includes public domain code adapted from Daniel Christopher 10/27/12 (instructables.com/id/Arduino-to-Processing-Serial-Communication-withou/)
 // Sends to port 6448 using OSC message /wek/inputs
 // Number of features varies according to number received via serial
