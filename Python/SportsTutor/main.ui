@@ -36,10 +36,11 @@
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">qApp-&gt;setStyleSheet(&quot;QLineEdit { background-color: yellow }&quot;);</string>
+     <string notr="true">stackedWidget-&gt;setStyleSheet(&quot;background-color:black;&quot;);
+stackedWidget-&gt;show();</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_5">
      <property name="minimumSize">
