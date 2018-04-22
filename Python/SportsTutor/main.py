@@ -7,7 +7,7 @@ import backend
 
 qtCreatorFile = "main.ui" # Enter file here.
 
-pipe = open("/tmp/un_pipe", "r")
+# pipe = open("/tmp/un_pipe", "r")
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
