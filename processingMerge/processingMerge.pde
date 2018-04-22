@@ -46,8 +46,17 @@ void oscEvent(OscMessage theOscMessage) {
   }
 }
 
+void flushPoints()
+{
+  points.clear();
+}
+
 void draw() {
-  sendToPipe();
+  if (points.size() == KINECT_LOAD + 6)
+  {
+    sendToPipe();
+    flushPoints();
+  }
 }
 /* sends data to wekinator*/
 void sendToPipe() {
@@ -61,11 +70,9 @@ void sendToPipe() {
   try {
     for (int i = 0; i < points.size(); i++) {
       float f = points.get(i);
-      //msg.add(f);
       sb.append(String.format("%.2f", f)).append(",");
     }
 
-    //oscP5.send(msg, dest);
     featureString = sb.toString();
   } 
   catch (Exception ex) {
