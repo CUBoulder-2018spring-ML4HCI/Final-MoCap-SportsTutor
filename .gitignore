@@ -6,9 +6,6 @@ Python/SportsTutor/__pycache__/
 *.1.tlog
 *.log
 SkeletonBasics-D2D/Debug/*.obj
+SkeletonBasics-D2D/Debug/*
 SkeletonBasics-D2D/.vs/*
-*.obj
-SkeletonBasics-D2D/.vs/SkeletonBasics-D2D/v15/.suo
-SkeletonBasics-D2D/.vs/SkeletonBasics-D2D/v15/.suo
-SkeletonBasics-D2D/.vs/SkeletonBasics-D2D/v15/Browse.VC.db
 *.obj

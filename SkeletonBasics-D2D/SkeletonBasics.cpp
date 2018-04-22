@@ -20,7 +20,7 @@ static const float g_TrackedBoneThickness = 6.0f;
 static const float g_InferredBoneThickness = 1.0f;
 
 //OSCPACKET CODE
-#define ADDRESS "10.201.0.33"
+#define ADDRESS "10.202.64.131"
 #define PORT 6448
 #define OUTPUT_BUFFER_SIZE 1024
 
@@ -112,7 +112,7 @@ int CSkeletonBasics::Run(HINSTANCE hInstance, int nCmdShow)
         hInstance,
         MAKEINTRESOURCE(IDD_APP),
         NULL,
-        (DLGPROC)CSkeletonBasics::MessageRouter, 
+        (DLGPROC)CSkeletonBasics::MessageRouter,
         reinterpret_cast<LPARAM>(this));
 
     // Show window
@@ -173,7 +173,7 @@ void CSkeletonBasics::Update()
 //AND OSCPACKET CODE (MODIFIED)
 //
 //------------------------------------------------------------------------------------------
-// 
+//
 void sendOSC(const NUI_SKELETON_DATA & skel) {
 	// formatting messages into a packet for sending:
 
@@ -181,7 +181,7 @@ void sendOSC(const NUI_SKELETON_DATA & skel) {
 
 	char buffer[OUTPUT_BUFFER_SIZE];
 	osc::OutboundPacketStream p(buffer, OUTPUT_BUFFER_SIZE);
-		
+
 	float val1 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].x * 100;
 	float val2 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].y * 100;
 	float val3 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].z * 100;
@@ -203,8 +203,8 @@ void sendOSC(const NUI_SKELETON_DATA & skel) {
 
 	p << osc::BeginBundleImmediate
 		<< osc::BeginMessage("/wek/inputs/a")
-		<< val1 << val2 << val3 << val4 << val5 << val6 
-		<< val7 << val8 << val9 << val10 << val11 << val12 
+		<< val1 << val2 << val3 << val4 << val5 << val6
+		<< val7 << val8 << val9 << val10 << val11 << val12
 		<< val13 << val14 << val15 << val16 << val17 << val18
 		<< osc::EndMessage
 	<< osc::EndBundle;
@@ -298,7 +298,7 @@ LRESULT CALLBACK CSkeletonBasics::DlgProc(HWND hWnd, UINT message, WPARAM wParam
 }
 
 /// <summary>
-/// Create the first connected Kinect found 
+/// Create the first connected Kinect found
 /// </summary>
 /// <returns>indicates success or failure</returns>
 HRESULT CSkeletonBasics::CreateFirstConnected()
@@ -337,14 +337,14 @@ HRESULT CSkeletonBasics::CreateFirstConnected()
     if (NULL != m_pNuiSensor)
     {
         // Initialize the Kinect and specify that we'll be using skeleton
-        hr = m_pNuiSensor->NuiInitialize(NUI_INITIALIZE_FLAG_USES_SKELETON); 
+        hr = m_pNuiSensor->NuiInitialize(NUI_INITIALIZE_FLAG_USES_SKELETON);
         if (SUCCEEDED(hr))
         {
             // Create an event that will be signaled when skeleton data is available
             m_hNextSkeletonEvent = CreateEventW(NULL, TRUE, FALSE, NULL);
 
             // Open a skeleton stream to receive skeleton data
-            hr = m_pNuiSensor->NuiSkeletonTrackingEnable(m_hNextSkeletonEvent, 0); 
+            hr = m_pNuiSensor->NuiSkeletonTrackingEnable(m_hNextSkeletonEvent, 0);
         }
     }
 
@@ -428,9 +428,9 @@ void CSkeletonBasics::ProcessSkeleton()
 /// <param name="windowWidth">width (in pixels) of output buffer</param>
 /// <param name="windowHeight">height (in pixels) of output buffer</param>
 void CSkeletonBasics::DrawSkeleton(const NUI_SKELETON_DATA & skel, int windowWidth, int windowHeight)
-{      
+{
 	//Also send OSC
-	sendOSC(skel);
+	  sendOSC(skel);
 
     int i;
 
@@ -552,7 +552,7 @@ HRESULT CSkeletonBasics::EnsureDirect2DResources()
     if (NULL == m_pRenderTarget)
     {
         RECT rc;
-        GetWindowRect( GetDlgItem( m_hWnd, IDC_VIDEOVIEW ), &rc );  
+        GetWindowRect( GetDlgItem( m_hWnd, IDC_VIDEOVIEW ), &rc );
 
         int width = rc.right - rc.left;
         int height = rc.bottom - rc.top;
@@ -585,7 +585,7 @@ HRESULT CSkeletonBasics::EnsureDirect2DResources()
 }
 
 /// <summary>
-/// Dispose Direct2d resources 
+/// Dispose Direct2d resources
 /// </summary>
 void CSkeletonBasics::DiscardDirect2DResources( )
 {
