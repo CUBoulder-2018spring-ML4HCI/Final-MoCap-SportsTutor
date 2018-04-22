@@ -40,7 +40,7 @@
 </string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page_5">
      <property name="minimumSize">
@@ -58,35 +58,44 @@
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>290</x>
-        <y>70</y>
-        <width>431</width>
-        <height>451</height>
+        <x>0</x>
+        <y>0</y>
+        <width>1301</width>
+        <height>761</height>
        </rect>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>pics/Asset 2@4x.png</pixmap>
+       <pixmap>pics/background/Display-03.jpg</pixmap>
       </property>
      </widget>
      <widget class="QPushButton" name="continue_button_2">
       <property name="geometry">
        <rect>
-        <x>380</x>
-        <y>540</y>
+        <x>650</x>
+        <y>510</y>
         <width>231</width>
         <height>81</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>20</pointsize>
+        <family>DIN 2014</family>
+        <pointsize>33</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 0, 0);
+color: white;
+font: 33pt &quot;DIN 2014&quot;;</string>
+      </property>
       <property name="text">
-       <string>Continue</string>
+       <string>continue</string>
       </property>
      </widget>
     </widget>
@@ -103,51 +112,140 @@
        <height>720</height>
       </size>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(&quot;background/Display-01.jpg&quot;);</string>
+     </property>
      <widget class="QPushButton" name="continue_button">
       <property name="geometry">
        <rect>
-        <x>380</x>
-        <y>540</y>
+        <x>650</x>
+        <y>510</y>
         <width>231</width>
         <height>81</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>20</pointsize>
+        <family>DIN 2014</family>
+        <pointsize>33</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 0, 0);
+color: white;
+font: 33pt &quot;DIN 2014&quot;;</string>
+      </property>
       <property name="text">
-       <string>Continue</string>
+       <string>continue</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>250</x>
-        <y>10</y>
-        <width>611</width>
-        <height>531</height>
+        <x>0</x>
+        <y>0</y>
+        <width>1041</width>
+        <height>721</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>pics/Display-01.png</pixmap>
+       <pixmap>pics/background/Display-01.jpg</pixmap>
       </property>
      </widget>
      <widget class="QPushButton" name="BackButton_7">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>40</y>
+        <x>70</x>
+        <y>101</y>
         <width>113</width>
-        <height>32</height>
+        <height>61</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(229, 72, 24);
+color: white;
+font: 33pt &quot;DIN 2014&quot;;</string>
+      </property>
       <property name="text">
-       <string>Back</string>
+       <string>BACK</string>
+      </property>
+     </widget>
+     <zorder>label_2</zorder>
+     <zorder>continue_button</zorder>
+     <zorder>BackButton_7</zorder>
+    </widget>
+    <widget class="QWidget" name="page_6">
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1041</width>
+        <height>721</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>pics/background/Display-02.jpg</pixmap>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="BackButton_8">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>101</y>
+        <width>113</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(229, 72, 24);
+color: white;
+font: 33pt &quot;DIN 2014&quot;;</string>
+      </property>
+      <property name="text">
+       <string>BACK</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="continue_button_3">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>510</y>
+        <width>231</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DIN 2014</family>
+        <pointsize>33</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 0, 0);
+color: white;
+font: 33pt &quot;DIN 2014&quot;;</string>
+      </property>
+      <property name="text">
+       <string>continue</string>
       </property>
      </widget>
     </widget>
@@ -164,75 +262,101 @@
        <height>720</height>
       </size>
      </property>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>460</x>
-        <y>130</y>
-        <width>191</width>
-        <height>111</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>30</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Virtual Coach</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="coachButton">
       <property name="geometry">
        <rect>
-        <x>160</x>
+        <x>270</x>
         <y>360</y>
-        <width>351</width>
-        <height>81</height>
+        <width>231</width>
+        <height>121</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>20</pointsize>
+        <family>DIN 2014</family>
+        <pointsize>33</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 103, 2);
+color: white;
+font: 33pt &quot;DIN 2014&quot;;</string>
+      </property>
       <property name="text">
-       <string>Coach</string>
+       <string>COACH</string>
       </property>
      </widget>
      <widget class="QPushButton" name="userButton">
       <property name="geometry">
        <rect>
-        <x>550</x>
+        <x>530</x>
         <y>360</y>
-        <width>351</width>
-        <height>81</height>
+        <width>231</width>
+        <height>121</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>20</pointsize>
+        <family>DIN 2014</family>
+        <pointsize>33</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 103, 2);
+color: white;
+font: 33pt &quot;DIN 2014&quot;;</string>
+      </property>
       <property name="text">
-       <string>User</string>
+       <string>USER</string>
       </property>
      </widget>
      <widget class="QPushButton" name="BackButton_2">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>40</y>
+        <x>70</x>
+        <y>101</y>
         <width>113</width>
-        <height>32</height>
+        <height>61</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(229, 72, 24);
+color: white;
+font: 33pt &quot;DIN 2014&quot;;</string>
+      </property>
       <property name="text">
-       <string>Back</string>
+       <string>BACK</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1041</width>
+        <height>721</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>pics/background/Display-06.jpg</pixmap>
+      </property>
+     </widget>
+     <zorder>label_7</zorder>
+     <zorder>coachButton</zorder>
+     <zorder>userButton</zorder>
+     <zorder>BackButton_2</zorder>
     </widget>
     <widget class="QWidget" name="page_3">
      <property name="minimumSize">
@@ -250,28 +374,62 @@
      <widget class="QPushButton" name="BackButton">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>40</y>
+        <x>70</x>
+        <y>101</y>
         <width>113</width>
-        <height>32</height>
+        <height>61</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(229, 72, 24);
+color: white;
+font: 33pt &quot;DIN 2014&quot;;</string>
+      </property>
       <property name="text">
-       <string>Back</string>
+       <string>BACK</string>
       </property>
      </widget>
      <widget class="QWidget" name="gridLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>190</x>
-        <y>140</y>
-        <width>661</width>
-        <height>421</height>
+        <x>200</x>
+        <y>200</y>
+        <width>631</width>
+        <height>481</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="1" column="0">
+       <item row="5" column="0">
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 103, 2);
+color: white;
+font: 33pt &quot;DIN 2014&quot;;</string>
+         </property>
+         <property name="text">
+          <string>DELETE RECORDINGS</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="recordButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 103, 2);
+color: white;
+font: 33pt &quot;DIN 2014&quot;;</string>
+         </property>
+         <property name="text">
+          <string>RECORD</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
         <widget class="QListWidget" name="listWidget">
+         <property name="styleSheet">
+          <string notr="true">background-color: black;
+color: white;
+font: 15pt &quot;DIN 2014&quot;;</string>
+         </property>
          <item>
           <property name="text">
            <string>Recording 1</string>
@@ -284,90 +442,90 @@
          </item>
         </widget>
        </item>
-       <item row="3" column="0">
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="text">
-          <string>Delete Recordings</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QPushButton" name="recordButton">
-         <property name="text">
-          <string>Record</string>
-         </property>
-        </widget>
-       </item>
       </layout>
      </widget>
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>480</x>
-        <y>20</y>
-        <width>91</width>
-        <height>111</height>
+        <x>0</x>
+        <y>0</y>
+        <width>1032</width>
+        <height>720</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>30</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <property name="text">
-       <string>Coach</string>
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>pics/background/Display-04.jpg</pixmap>
       </property>
      </widget>
+     <zorder>label_8</zorder>
+     <zorder>BackButton</zorder>
+     <zorder>gridLayoutWidget</zorder>
     </widget>
     <widget class="QWidget" name="page_4">
      <widget class="QPushButton" name="BackButton_3">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>40</y>
+        <x>70</x>
+        <y>101</y>
         <width>113</width>
-        <height>32</height>
+        <height>61</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(229, 72, 24);
+color: white;
+font: 33pt &quot;DIN 2014&quot;;</string>
+      </property>
       <property name="text">
-       <string>Back</string>
+       <string>BACK</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton">
       <property name="geometry">
        <rect>
-        <x>380</x>
-        <y>540</y>
+        <x>430</x>
+        <y>520</y>
         <width>181</width>
         <height>101</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 103, 2);
+color: white;
+font: 33pt &quot;DIN 2014&quot;;</string>
+      </property>
       <property name="text">
-       <string>Run Program</string>
+       <string>RUN</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_4">
+     <widget class="QLabel" name="label_9">
       <property name="geometry">
        <rect>
-        <x>480</x>
-        <y>80</y>
-        <width>71</width>
-        <height>111</height>
+        <x>0</x>
+        <y>0</y>
+        <width>1041</width>
+        <height>721</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>30</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <property name="text">
-       <string>User</string>
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>pics/background/Display-05.jpg</pixmap>
       </property>
      </widget>
+     <zorder>label_9</zorder>
+     <zorder>BackButton_3</zorder>
+     <zorder>pushButton</zorder>
     </widget>
    </widget>
   </widget>

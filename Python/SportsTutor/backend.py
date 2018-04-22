@@ -7,7 +7,7 @@ Y = []
 temp_holder = []
 END_SAMPLE = False
 
-PIPE = open("/tmp/un_pipe", 'r')
+# PIPE = open("/tmp/un_pipe", 'r')
 
 
 def get_training_data():

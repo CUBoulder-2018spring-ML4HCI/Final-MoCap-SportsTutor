@@ -27,10 +27,12 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.continue_button.clicked.connect(self.nextPage)
         self.continue_button_2.clicked.connect(self.nextPage)
+        self.continue_button_3.clicked.connect(self.nextPage)
         self.BackButton.clicked.connect(self.prevPage)
         self.BackButton_2.clicked.connect(self.prevPage)
         self.BackButton_3.clicked.connect(self.prevPage)
         self.BackButton_7.clicked.connect(self.prevPage)
+        self.BackButton_8.clicked.connect(self.prevPage)
         self.coachButton.clicked.connect(self.coachPage)
         self.userButton.clicked.connect(self.userPage)
         super(type(self.recordButton), self.recordButton).setAutoRepeat(True)
@@ -49,9 +51,9 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def prevPage(self):
         self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex()-1)
     def coachPage(self):
-        self.stackedWidget.setCurrentIndex(3)
-    def userPage(self):
         self.stackedWidget.setCurrentIndex(4)
+    def userPage(self):
+        self.stackedWidget.setCurrentIndex(5)
     def returningUserClicked(self):
         self.stackedWidget.setCurrentIndex(2)
     def newUserClicked(self):

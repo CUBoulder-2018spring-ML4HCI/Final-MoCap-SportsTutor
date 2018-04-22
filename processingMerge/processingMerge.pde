@@ -12,6 +12,8 @@ int KINECT_LOAD = 18;
 ArrayList<Float> points;
 BufferedWriter output;
 
+String featureString = "";
+
 void setup() {
   /* start oscP5, listening for incoming messages at port 12000 */
   oscP5 = new OscP5(this, 6448);
@@ -21,7 +23,7 @@ void setup() {
 void oscEvent(OscMessage theOscMessage) {
   points = new ArrayList<Float>();
   if (theOscMessage.checkAddrPattern("/wek/inputs/a")==true) {
-    if (theOscMessage.checkTypetag("ffffffffffff")) { //Now looking for 2 parameters
+    if (theOscMessage.checkTypetag("ffffffffffffffffff")) { //Now looking for 2 parameters
       for (int i = 0; i < KINECT_LOAD; i++) {
         points.add(theOscMessage.get(i).floatValue());
       }
@@ -58,7 +60,7 @@ void sendToPipe() {
   StringBuilder sb = new StringBuilder();
   try {
     for (int i = 0; i < points.size(); i++) {
-      float f = Float.parseFloat(points.get(i));
+      float f = points.get(i);
       //msg.add(f);
       sb.append(String.format("%.2f", f)).append(",");
     }
@@ -78,4 +80,3 @@ void sendToPipe() {
     e.printStackTrace();
   }
 }
-
