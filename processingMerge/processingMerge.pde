@@ -9,7 +9,7 @@ OscP5 oscP51;
 NetAddress dest;
 
 int KINECT_LOAD = 18;
-ArrayList<Float> points;
+ArrayList<Float> points = new ArrayList();
 BufferedWriter output;
 
 String featureString = "";
@@ -52,7 +52,7 @@ void flushPoints()
 }
 
 void draw() {
-  if (points.size() == KINECT_LOAD + 6)
+  if (points.size() == (KINECT_LOAD + 6))
   {
     sendToPipe();
     flushPoints();
