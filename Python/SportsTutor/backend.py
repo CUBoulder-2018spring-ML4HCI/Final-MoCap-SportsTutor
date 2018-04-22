@@ -7,16 +7,28 @@ Y = []
 temp_holder = []
 END_SAMPLE = False
 
-# PIPE = open("/tmp/un_pipe", 'r')
+PIPE = open("/tmp/un_pipe", 'r')
 
-
-def get_training_data():
-	global temp_holder
+def read_pipe():
 	global PIPE
 	line = PIPE.read()
 	if not(len(line) == 0):
 		line_arr = line.split(",")
 		xx = [x for x in line_arr]
+		return xx
+	else:
+		return None
+
+def get_test_data():
+	global Y
+	xx = read_pipe()
+	if xx:
+		Y.append(xx)
+
+def get_training_data():
+	global temp_holder
+	xx = read_pipe()
+	if xx:
 		temp_holder.append(xx)
 
 
@@ -24,11 +36,11 @@ def stop():
 	global temp_holder
 	global training_samples
 	global Y
-	if (not training_samples):
+	if (Y == []):
 		temp_holder_copy = list(temp_holder)
 		training_samples.append(temp_holder_copy)
 		temp_holder.clear()
-	if not (Y == []):
+	else:
 		dtws = []
 		for x in training_samples:
 			distance = dtw(x, Y, euclidean)
@@ -37,5 +49,3 @@ def stop():
 		print ("MIN DISTANCE: ", mind_dist)
 
 	print (training_samples)
-
-
