@@ -35,17 +35,31 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.BackButton_8.clicked.connect(self.prevPage)
         self.coachButton.clicked.connect(self.coachPage)
         self.userButton.clicked.connect(self.userPage)
-        super(type(self.recordButton), self.recordButton).setAutoRepeat(True)
-        # hold down button
-        super(type(self.recordButton), self.recordButton).setAutoRepeatInterval(10) 
+        # super(type(self.recordButton), self.recordButton).setAutoRepeat(True)
+        # # hold down button
+        # super(type(self.recordButton), self.recordButton).setAutoRepeatInterval(10) 
         # speed of the hold down function
-        self.recordButton.pressed.connect(self.kill)
-        self.recordButton.released.connect(self.me)
 
-    def kill(self):
-        backend.get_training_data()
-    def me(self):
-        backend.stop()
+        # super(type(self.runUser), self.runUser).setAutoRepeat(True)
+        # # hold down button
+        # super(type(self.runUser), self.runUser).setAutoRepeatInterval(10)
+
+
+
+        self.recordButton.pressed.connect(self.record)
+        self.recordButton.released.connect(self.stop_train)
+        self.runUser.pressed.connect(self.run)
+        # self.runUser.released.connect(self.stop)
+        self.stopRecording.pressed.connect(self.stop_test);
+
+    def record(self):
+        backend.get_train_data()
+    def run(self):
+        backend.get_test_data()
+    def stop_train(self):
+        backend.stop_train()
+    def stop_test(self):
+        backend.stop_test()
     def nextPage(self):
         self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex()+1)
     def prevPage(self):

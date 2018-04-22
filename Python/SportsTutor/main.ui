@@ -40,7 +40,7 @@
 </string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="page_5">
      <property name="minimumSize">
@@ -400,14 +400,14 @@ font: 33pt &quot;DIN 2014&quot;;</string>
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="5" column="0">
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="stopRecording">
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 103, 2);
 color: white;
 font: 33pt &quot;DIN 2014&quot;;</string>
          </property>
          <property name="text">
-          <string>DELETE RECORDINGS</string>
+          <string>STOP RECORD</string>
          </property>
         </widget>
        </item>
@@ -486,7 +486,7 @@ font: 33pt &quot;DIN 2014&quot;;</string>
        <string>BACK</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="runUser">
       <property name="geometry">
        <rect>
         <x>430</x>
@@ -525,7 +525,7 @@ font: 33pt &quot;DIN 2014&quot;;</string>
      </widget>
      <zorder>label_9</zorder>
      <zorder>BackButton_3</zorder>
-     <zorder>pushButton</zorder>
+     <zorder>runUser</zorder>
     </widget>
    </widget>
   </widget>
