@@ -5,6 +5,7 @@
 //------------------------------------------------------------------------------
 
 #include "stdafx.h"
+#include <fstream>
 #include <strsafe.h>
 #include "SkeletonBasics.h"
 #include "resource.h"
@@ -14,13 +15,14 @@
 
 //#pragma comment(lib, "ws2_32.lib")
 
+using namespace std;
 
 static const float g_JointThickness = 3.0f;
 static const float g_TrackedBoneThickness = 6.0f;
 static const float g_InferredBoneThickness = 1.0f;
 
 //OSCPACKET CODE
-#define ADDRESS "10.202.64.131"
+#define ADDRESS "10.202.2.53"
 #define PORT 6448
 #define OUTPUT_BUFFER_SIZE 1024
 
@@ -92,6 +94,10 @@ int CSkeletonBasics::Run(HINSTANCE hInstance, int nCmdShow)
 {
     MSG       msg = {0};
     WNDCLASS  wc  = {0};
+
+	std::ifstream t("skeleton.config");
+	std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
+
 
     // Dialog custom window class
     wc.style         = CS_HREDRAW | CS_VREDRAW;
