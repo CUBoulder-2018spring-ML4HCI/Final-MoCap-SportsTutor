@@ -9,6 +9,8 @@ OscP5 oscP51;
 NetAddress dest;
 
 int KINECT_LOAD = 18;
+boolean kinect_received = false;
+boolean mb_received = false;
 ArrayList<Float> points = new ArrayList();
 BufferedWriter output;
 
@@ -23,25 +25,30 @@ void setup() {
 void oscEvent(OscMessage theOscMessage) {
   points = new ArrayList<Float>();
   if (theOscMessage.checkAddrPattern("/wek/inputs/a")==true) {
-    if (theOscMessage.checkTypetag("ffffffffffffffffff")) { //Now looking for 2 parameters
-      for (int i = 0; i < KINECT_LOAD; i++) {
-        points.add(theOscMessage.get(i).floatValue());
+    if (!kinect_received) {
+      if (theOscMessage.checkTypetag("ffffffffffffffffff")) { //Now looking for 2 parameters
+        for (int i = 0; i < KINECT_LOAD; i++) {
+          points.add(theOscMessage.get(i).floatValue());
+        }
+        println("Received new params value from Wekinator");
+      } else {
+        println("Error: unexpected params type tag received by Processing");
       }
-      println("Received new params value from Wekinator");
-    } else {
-      println("Error: unexpected params type tag received by Processing");
+      kinect_received = true;
     }
   }
   if (theOscMessage.checkAddrPattern("/wek/inputs/b")==true) {
-    if (theOscMessage.checkTypetag("ffffff")) { //Now looking for 2 parameters
-
-      for (int i = 0; i < 6; i++) {
-        points.add(theOscMessage.get(i).floatValue());
+    if (!mb_received)
+    {
+      if (theOscMessage.checkTypetag("ffffff")) { //Now looking for 2 parameters
+        for (int i = 0; i < 6; i++) {
+          points.add(theOscMessage.get(i).floatValue());
+        }
+        println("Received new params value from Wekinator");
+      } else {
+        println("Error: unexpected params type tag received by Processing");
       }
-
-      println("Received new params value from Wekinator");
-    } else {
-      println("Error: unexpected params type tag received by Processing");
+      mb_received = true;
     }
   }
 }
@@ -52,10 +59,12 @@ void flushPoints()
 }
 
 void draw() {
-  if (points.size() == (KINECT_LOAD + 6))
+  if ((points.size() == (KINECT_LOAD + 6)) && mb_received && kinect_received)
   {
     sendToPipe();
     flushPoints();
+    mb_received = false;
+    kinect_received = false;
   }
 }
 /* sends data to wekinator*/

@@ -9,3 +9,4 @@ SkeletonBasics-D2D/Debug/*.obj
 SkeletonBasics-D2D/Debug/*
 SkeletonBasics-D2D/.vs/*
 *.obj
+*.tmp
