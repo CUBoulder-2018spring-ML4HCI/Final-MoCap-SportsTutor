@@ -9,9 +9,10 @@ OscP5 oscP51;
 NetAddress dest;
 
 int KINECT_LOAD = 18;
-boolean kinect_received = false;
-boolean mb_received = false;
-ArrayList<Float> points = new ArrayList();
+ArrayList<Float> mb_points = new ArrayList();
+ArrayList<Float> kinect_points = new ArrayList();
+Stack<ArrayList> kinect_stack = new Stack();
+Stack<ArrayList> mb_stack = new Stack();
 BufferedWriter output;
 
 String featureString = "";
@@ -23,52 +24,46 @@ void setup() {
 }
 /* recieves inputs from two programs*/
 void oscEvent(OscMessage theOscMessage) {
-  points = new ArrayList<Float>();
   if (theOscMessage.checkAddrPattern("/wek/inputs/a")==true) {
-    if (!kinect_received) {
       if (theOscMessage.checkTypetag("ffffffffffffffffff")) { //Now looking for 2 parameters
         for (int i = 0; i < KINECT_LOAD; i++) {
-          points.add(theOscMessage.get(i).floatValue());
+         kinect_points.add(theOscMessage.get(i).floatValue());
         }
         println("Received new params value from Wekinator");
       } else {
         println("Error: unexpected params type tag received by Processing");
       }
-      kinect_received = true;
-    }
+      kinect_stack.push((ArrayList)kinect_points.clone());
   }
   if (theOscMessage.checkAddrPattern("/wek/inputs/b")==true) {
-    if (!mb_received)
-    {
       if (theOscMessage.checkTypetag("ffffff")) { //Now looking for 2 parameters
         for (int i = 0; i < 6; i++) {
-          points.add(theOscMessage.get(i).floatValue());
+          mb_points.add(theOscMessage.get(i).floatValue());
         }
         println("Received new params value from Wekinator");
       } else {
         println("Error: unexpected params type tag received by Processing");
       }
-      mb_received = true;
-    }
+      mb_stack.push((ArrayList)mb_points.clone());
   }
+  flushPoints();
 }
 
 void flushPoints()
 {
-  points.clear();
+  kinect_points.clear();
+  mb_points.clear();
 }
 
 void draw() {
-  if ((points.size() == (KINECT_LOAD + 6)) && mb_received && kinect_received)
+  if (!(mb_stack.empty()) && !(kinect_stack.empty()))
   {
-    sendToPipe();
-    flushPoints();
-    mb_received = false;
-    kinect_received = false;
+    sendToPipe(kinect_stack.pop(), mb_stack.pop());
   }
 }
+
 /* sends data to wekinator*/
-void sendToPipe() {
+void sendToPipe(ArrayList kinect_points, ArrayList mb_points) {
   try {
     output = new BufferedWriter(new FileWriter("/tmp/un_pipe", true));
   } 
@@ -77,6 +72,10 @@ void sendToPipe() {
   }
   StringBuilder sb = new StringBuilder();
   try {
+    ArrayList<Float> points = new ArrayList();
+    points.addAll(kinect_points);
+    points.addAll(mb_points);
+    
     for (int i = 0; i < points.size(); i++) {
       float f = points.get(i);
       sb.append(String.format("%.2f", f)).append(",");
