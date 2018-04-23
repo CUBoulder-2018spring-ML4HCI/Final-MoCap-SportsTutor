@@ -9,7 +9,7 @@ temp_holder = []
 GET_SAMPLE_TRAIN = False
 GET_SAMPLE_TEST = False
 
-PIPE = open("/tmp/un_pipe", 'r')
+# PIPE = open("/tmp/un_pipe", 'r')
 
 
 
@@ -23,7 +23,7 @@ def stop_test():
 
 def get_train_data():
 	global GET_SAMPLE_TRAIN
-	print ("GETTING TRAINING DATA HO")
+	# print ("GETTING TRAINING DATA HO")
 	GET_SAMPLE_TRAIN = True
 
 def get_test_data():
@@ -53,10 +53,10 @@ def poll_test():
 
 def poll_train():
 	global GET_SAMPLE_TRAIn
-	print ("we in this bitch")
+	# print ("we in this bitch")
 	while True:
 		if GET_SAMPLE_TRAIN:
-			print ("WE DOUBLE IN THIE BITCH")
+			# print ("WE DOUBLE IN THIE BITCH")
 			global temp_holder
 			xx = read_pipe()
 			if xx:
