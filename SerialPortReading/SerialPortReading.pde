@@ -157,11 +157,11 @@ void sendFeatures(String[] s) {
   try {
     for (int i = 0; i < s.length; i++) {
       float f = Float.parseFloat(s[i]);
-      //msg.add(f);
+      msg.add(f);
       sb.append(String.format("%.2f", f)).append(" ");
     }
 
-    //oscP5.send(msg, dest);
+    oscP5.send(msg, dest);
     featureString = sb.toString();
     println(featureString);
   } catch (Exception ex) {
