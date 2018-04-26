@@ -55,18 +55,28 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
     #USER
     def run_user(self):
-        reset_color(self.bodyElbow)
         reset_color(self.bodyShoulder)
+        reset_color(self.bodyElbow)
         reset_color(self.bodyWrist)
+
+        reset_color_circle(self.circleShoulder)
+        reset_color_circle(self.circleElbow)
+        reset_color_circle_wrist(self.circleWrist)
+
+
         backend.get_test_data()
     def stop_user(self):
-        if 0: # set this to when we want to change body elbow
-            change_color(self.bodyElbow)
-        if 0:
+        if 0:# set this to when we want to change body shoulder
             change_color(self.bodyShoulder)
+            change_color_circle(self.circleShoulder)
+        if 0: 
+            change_color(self.bodyElbow)
+            change_color_circle(self.circleElbow)
         if 1:
             change_color(self.bodyWrist)
-        change_text(self.feedbackText, "beginning of shot change your wrist scrub")
+            change_color_circle_wrist(self.circleWrist)
+        feedback_string = "git good"
+        change_text(self.feedbackText, feedback_string)
 
 
     #COACH
@@ -92,7 +102,21 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 def change_color(obj):
     obj.setStyleSheet("""
            font: 20pt "DIN 2014";
-           color: red;
+           color: orange;
+           """
+    )
+
+def change_color_circle(obj):
+    obj.setStyleSheet("""
+           background: orange;
+           border-radius: 15px;
+           """
+    )
+
+def change_color_circle_wrist(obj):
+    obj.setStyleSheet("""
+           background: orange;
+           border-radius: 13px;
            """
     )
 
@@ -100,6 +124,19 @@ def reset_color(obj):
     obj.setStyleSheet("""
            font: 20pt "DIN 2014";
            color: black;
+           """
+    )
+
+def reset_color_circle(obj):
+    obj.setStyleSheet("""
+           background: white;
+           border-radius: 15px;
+           """
+    )
+def reset_color_circle_wrist(obj):
+    obj.setStyleSheet("""
+           background: white;
+           border-radius: 13px;
            """
     )
 
