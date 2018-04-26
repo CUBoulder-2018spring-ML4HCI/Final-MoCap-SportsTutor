@@ -48,14 +48,30 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.recordButton.pressed.connect(self.record)
         self.recordButton.released.connect(self.stop_train)
-        self.runUser.pressed.connect(self.run)
-        # self.runUser.released.connect(self.stop)
         self.stopRecording.pressed.connect(self.stop_test);
+        self.runUser.pressed.connect(self.run_user)
+        self.stopUser.pressed.connect(self.stop_user)
+        # self.runUser.released.connect(self.stop)
 
+    #USER
+    def run_user(self):
+        reset_color(self.bodyElbow)
+        reset_color(self.bodyShoulder)
+        reset_color(self.bodyWrist)
+        backend.get_test_data()
+    def stop_user(self):
+        if 0: # set this to when we want to change body elbow
+            change_color(self.bodyElbow)
+        if 0:
+            change_color(self.bodyShoulder)
+        if 1:
+            change_color(self.bodyWrist)
+        change_text(self.feedbackText, "beginning of shot change your wrist scrub")
+
+
+    #COACH
     def record(self):
         backend.get_train_data()
-    def run(self):
-        backend.get_test_data()
     def stop_train(self):
         backend.stop_train()
     def stop_test(self):
@@ -73,6 +89,23 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def newUserClicked(self):
         self.stackedWidget.setCurrentIndex(1)
  
+def change_color(obj):
+    obj.setStyleSheet("""
+           font: 20pt "DIN 2014";
+           color: red;
+           """
+    )
+
+def reset_color(obj):
+    obj.setStyleSheet("""
+           font: 20pt "DIN 2014";
+           color: black;
+           """
+    )
+
+def change_text(obj, text):
+    obj.setText(text)
+
 if __name__ == "__main__":
     # Create and start the new thread
     
