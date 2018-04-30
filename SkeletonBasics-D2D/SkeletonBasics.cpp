@@ -7,6 +7,8 @@
 #include "stdafx.h"
 #include <fstream>
 #include <strsafe.h>
+#include <iostream>
+#include <string>
 #include "SkeletonBasics.h"
 #include "resource.h"
 
@@ -20,9 +22,10 @@ using namespace std;
 static const float g_JointThickness = 3.0f;
 static const float g_TrackedBoneThickness = 6.0f;
 static const float g_InferredBoneThickness = 1.0f;
+string ADDRESS = "";
 
 //OSCPACKET CODE
-#define ADDRESS "10.201.0.133"
+//#define ADDRESS "127.0.0.1"
 #define PORT 6448
 #define OUTPUT_BUFFER_SIZE 1024
 
@@ -95,8 +98,12 @@ int CSkeletonBasics::Run(HINSTANCE hInstance, int nCmdShow)
     MSG       msg = {0};
     WNDCLASS  wc  = {0};
 
+	string line;
 	std::ifstream t("skeleton.config");
-	std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
+	while (getline(t, line))
+	{
+		ADDRESS = line;
+	}
 
 
     // Dialog custom window class
@@ -122,7 +129,7 @@ int CSkeletonBasics::Run(HINSTANCE hInstance, int nCmdShow)
         reinterpret_cast<LPARAM>(this));
 
     // Show window
-    ShowWindow(hWndApp, nCmdShow);
+    //ShowWindow(hWndApp, nCmdShow);
 
     const int eventCount = 1;
     HANDLE hEvents[eventCount];
@@ -183,7 +190,9 @@ void CSkeletonBasics::Update()
 void sendOSC(const NUI_SKELETON_DATA & skel) {
 	// formatting messages into a packet for sending:
 
-	UdpTransmitSocket transmitSocket(IpEndpointName(ADDRESS, PORT));
+	const char * ADDRESS_CHAR = ADDRESS.c_str();
+
+	UdpTransmitSocket transmitSocket(IpEndpointName(ADDRESS_CHAR, PORT));
 
 	char buffer[OUTPUT_BUFFER_SIZE];
 	osc::OutboundPacketStream p(buffer, OUTPUT_BUFFER_SIZE);
