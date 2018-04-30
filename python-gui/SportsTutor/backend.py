@@ -87,56 +87,60 @@ def poll_train():
 				temp_holder.append(xx)
 
 def get_largest_distance():
-	global training_samples
-	global testing_samples
-	global skeletal_index
+	try:
+		global training_samples
+		global testing_samples
+		global skeletal_index
 
-	#Builds a 2D array containing 24 smaller arrays. Each smaller arrary holds all data points
-	#taken for that specific joint during training.
-	datapoints_compilation = [[]] * len(training_samples[0])
-	for sample in range(0, len(training_samples)):
-		for point in range(0, len(sample)):
-			datapoints_compilation[point].append(training_samples[sample][point])
-	
-	#Goes through each point array and calculates the average and standard deviation,
-	#leaving training_summary as a 24-item array with ditionaries for each item
-	training_summary = []
-	for datapoint_arr in datapoints_compilation:
-		training_summary.append({"average":(sum(datapoint_arr) / len(datapoint_arr)), 
-								 "stdev":numpy.std(numpy.array(datapoint_arr))
-								})
+		#Builds a 2D array containing 24 smaller arrays. Each smaller arrary holds all data points
+		#taken for that specific joint during training.
+		datapoints_compilation = [[]] * len(training_samples[0])
+		for sample in range(0, len(training_samples)):
+			for point in range(0, len(sample)):
+				datapoints_compilation[point].append(training_samples[sample][point])
+		
+		#Goes through each point array and calculates the average and standard deviation,
+		#leaving training_summary as a 24-item array with ditionaries for each item
+		training_summary = []
+		for datapoint_arr in datapoints_compilation:
+			training_summary.append({"average":(sum(datapoint_arr) / len(datapoint_arr)), 
+									"stdev":numpy.std(numpy.array(datapoint_arr))
+									})
 
-	#Builds a 2D array containing 24 smaller arrays. Each smaller arrary holds all data points
-	#taken for that specific joint during testing.
-	datapoints_compilation = [[]] * len(testing_samples[0])
-	for sample in range(0, len(testing_samples)):
-		for point in range(0, len(sample)):
-			datapoints_compilation[point].append(testing_samples[sample][point])
+		#Builds a 2D array containing 24 smaller arrays. Each smaller arrary holds all data points
+		#taken for that specific joint during testing.
+		datapoints_compilation = [[]] * len(testing_samples[0])
+		for sample in range(0, len(testing_samples)):
+			for point in range(0, len(sample)):
+				datapoints_compilation[point].append(testing_samples[sample][point])
 
-	#Goes through each point array and calculates the average,
-	#leaving testing_summary as a 24-item array with ditionaries for each item
-	testing_summary = []
-	for datapoint_arr in datapoints_compilation:
-		testing_summary.append({"average":(sum(datapoint_arr) / len(datapoint_arr))})
-	
-	#Goes through once and tries to find the largest average outside of a standard deviation.
-	#If none exist outside of a standard deviation, just find the largest distance
-	curr_max = 0
-	for x in range(0, len(testing_summary)):
-		if (abs(testing_summary[x]["average"] - training_summary[x]["average"]) > curr_max) \
-			and ((testing_summary[x]["average"] > training_summary[x]["average"] + training_summary[x]["stdev"]) \
-			or (testing_summary[x])["average"] < training_summary[x]["average"] - training_summary[x]["stdev"]):
-				curr_max = x
-	if curr_max == 0:
-		for y in range(0, len(testing_summary)):
-			if (abs(testing_summary[x]["average"] - training_summary[x]["average"]) > curr_max):
-				curr_max = y
-	
-	#Correlates greatest distance with joint
-	if curr_max < 24:
-		return skeletal_index[curr_max]
-	else:
-		return 0
+		#Goes through each point array and calculates the average,
+		#leaving testing_summary as a 24-item array with ditionaries for each item
+		testing_summary = []
+		for datapoint_arr in datapoints_compilation:
+			testing_summary.append({"average":(sum(datapoint_arr) / len(datapoint_arr))})
+		
+		#Goes through once and tries to find the largest average outside of a standard deviation.
+		#If none exist outside of a standard deviation, just find the largest distance
+		curr_max = 0
+		for x in range(0, len(testing_summary)):
+			if (abs(testing_summary[x]["average"] - training_summary[x]["average"]) > curr_max) \
+				and ((testing_summary[x]["average"] > training_summary[x]["average"] + training_summary[x]["stdev"]) \
+				or (testing_summary[x])["average"] < training_summary[x]["average"] - training_summary[x]["stdev"]):
+					curr_max = x
+		if curr_max == 0:
+			for y in range(0, len(testing_summary)):
+				if (abs(testing_summary[x]["average"] - training_summary[x]["average"]) > curr_max):
+					curr_max = y
+		
+		#Correlates greatest distance with joint
+		if curr_max < 24:
+			return skeletal_index[curr_max]
+		else:
+			return skeletal_index[0]
+	except Exception as e:
+		print(e.__str__)
+		return skeletal_index[0]
 
 def get_best_shot():
 	global training_samples
