@@ -66,16 +66,17 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         backend.get_test_data()
     def stop_user(self):
-        if 0:# set this to when we want to change body shoulder
+        body_part = str(backend.get_largest_distance())
+        if "SHOULDER" in body_part:# set this to when we want to change body shoulder
             change_color(self.bodyShoulder)
             change_color_circle(self.circleShoulder)
-        if 0: 
+        if "ELBOW" in body_part: 
             change_color(self.bodyElbow)
             change_color_circle(self.circleElbow)
-        if 1:
+        if "WRIST" in body_part:
             change_color(self.bodyWrist)
             change_color_circle_wrist(self.circleWrist)
-        feedback_string = "git good"
+        feedback_string = "Change your " + body_part 
         change_text(self.feedbackText, feedback_string)
 
 
