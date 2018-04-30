@@ -37,7 +37,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.userButton.clicked.connect(self.userPage)
         # super(type(self.recordButton), self.recordButton).setAutoRepeat(True)
         # # hold down button
-        # super(type(self.recordButton), self.recordButton).setAutoRepeatInterval(10) 
+        # super(type(self.recordButton), self.recordButton).setAutoRepeatInterval(10)
         # speed of the hold down function
 
         # super(type(self.runUser), self.runUser).setAutoRepeat(True)
@@ -48,7 +48,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.recordButton.pressed.connect(self.record)
         self.recordButton.released.connect(self.stop_train)
-        self.stopRecording.pressed.connect(self.stop_test)
+        self.stopRecording.pressed.connect(self.stop_train)
         self.runUser.pressed.connect(self.run_user)
         self.stopUser.pressed.connect(self.stop_user)
         # self.runUser.released.connect(self.stop)
@@ -70,13 +70,13 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if "SHOULDER" in body_part:# set this to when we want to change body shoulder
             change_color(self.bodyShoulder)
             change_color_circle(self.circleShoulder)
-        if "ELBOW" in body_part: 
+        if "ELBOW" in body_part:
             change_color(self.bodyElbow)
             change_color_circle(self.circleElbow)
         if "WRIST" in body_part:
             change_color(self.bodyWrist)
             change_color_circle_wrist(self.circleWrist)
-        feedback_string = "Change your " + body_part 
+        feedback_string = "Change your " + body_part
         change_text(self.feedbackText, feedback_string)
 
 
@@ -99,7 +99,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.stackedWidget.setCurrentIndex(2)
     def newUserClicked(self):
         self.stackedWidget.setCurrentIndex(1)
- 
+
 def change_color(obj):
     obj.setStyleSheet("""
            font: 20pt "DIN 2014";
@@ -146,11 +146,9 @@ def change_text(obj, text):
 
 if __name__ == "__main__":
     # Create and start the new thread
-    
+
     app = QtWidgets.QApplication(sys.argv)
     window = MyApp()
     window.setFixedSize(1031, 720)
     window.show()
     sys.exit(app.exec_())
-
-
