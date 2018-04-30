@@ -10,3 +10,5 @@ SkeletonBasics-D2D/Debug/*
 SkeletonBasics-D2D/.vs/*
 *.obj
 *.tmp
+*.pyc
+*.cpython-36.pyc

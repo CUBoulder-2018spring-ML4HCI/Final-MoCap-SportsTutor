@@ -22,7 +22,7 @@ static const float g_TrackedBoneThickness = 6.0f;
 static const float g_InferredBoneThickness = 1.0f;
 
 //OSCPACKET CODE
-#define ADDRESS "10.202.2.53"
+#define ADDRESS "10.201.0.133"
 #define PORT 6448
 #define OUTPUT_BUFFER_SIZE 1024
 

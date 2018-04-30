@@ -48,7 +48,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.recordButton.pressed.connect(self.record)
         self.recordButton.released.connect(self.stop_train)
-        self.stopRecording.pressed.connect(self.stop_test);
+        self.stopRecording.pressed.connect(self.stop_test)
         self.runUser.pressed.connect(self.run_user)
         self.stopUser.pressed.connect(self.stop_user)
         # self.runUser.released.connect(self.stop)
