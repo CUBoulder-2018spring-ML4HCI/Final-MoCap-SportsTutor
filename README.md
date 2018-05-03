@@ -14,16 +14,19 @@ without their coach present and provide feedback and tips on improving form and 
 
 ## Setup
 ### Hardware
-#### 3 Microbits
-#### 2 Batteries
+##### 3 Microbits
+* 2 Batteries
 * Load `microbit/microbit-receiver.hex`
 * Load `microbit/microbit-transmit1.hex`
 * Load `microbit/microbit-transmit2.hex`
-#### Kinect
+
+##### Kinect
 * Place black backdrop behind you for a better read
 
 ### Software
-In order to run this program, you need to execute the following files:
+##### Dependencies include:
+
+##### Execute the Following:
 * `python-gui/SportsTutor/main.py`
 * `SerialPortReading/SerialPortReading.pde`
 * `processingMerge/processingMerge.pde`
