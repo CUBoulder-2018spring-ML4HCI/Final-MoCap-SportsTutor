@@ -14,12 +14,13 @@ without their coach present and provide feedback and tips on improving form and 
 
 ## Setup
 ### Hardware
-* 3 Microbits
-* 2 Batteries
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * Load `microbit/microbit-receiver.hex`
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * Load `microbit/microbit-transmit1.hex`
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * Load `microbit/microbit-transmit2.hex`
-* Kinect
+#### 3 Microbits
+#### 2 Batteries
+* Load `microbit/microbit-receiver.hex`
+* Load `microbit/microbit-transmit1.hex`
+* Load `microbit/microbit-transmit2.hex`
+#### Kinect
+* Place black backdrop behind you for a better read
 
 ### Software
 In order to run this program, you need to execute the following files:
