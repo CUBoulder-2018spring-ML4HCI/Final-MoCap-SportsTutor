@@ -14,18 +14,19 @@ without their coach present and provide feedback and tips on improving form and 
 
 ## Setup
 ### Hardware
+For this project, you will need one Unix-based or Macintosh system and one Windows system (preferably Windows 8 or above).
+
 ##### 3 Microbits
-* 2 Batteries
-* Load `microbit/microbit-receiver.hex`
-* Load `microbit/microbit-transmit1.hex`
-* Load `microbit/microbit-transmit2.hex`
+* 2 Batteries each
+* Load `microbit/microbit-receiver.hex` onto one microbit
+* Load `microbit/microbit-transmit1.hex` onto another microbit
+* Load `microbit/microbit-transmit2.hex` onto the last microbit
 
 ##### Kinect
 * Place black backdrop behind you for a better read.
 * Connect Kinect to Windows computer.
 * Ensure you have installed the Kinect packages listed below in software dependencies.
 * Edit the skeleton.config folder found in `SkeletonBasics-D2D/Debug/skeleton.config` to hold the IP address of your Macintosh system.
-* Execute `SkeletonBasics-D2D/Debug/SkeletonBasics-D2D.exe`
 
 ### Software
 ##### Dependencies include:
@@ -34,4 +35,3 @@ without their coach present and provide feedback and tips on improving form and 
 * `python-gui/SportsTutor/main.py`
 * `SerialPortReading/SerialPortReading.pde`
 * `processingMerge/processingMerge.pde`
-
