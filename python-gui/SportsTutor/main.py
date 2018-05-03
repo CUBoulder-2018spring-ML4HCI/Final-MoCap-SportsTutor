@@ -25,6 +25,9 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
 
+        #counter for recordings
+        self.counter = 0
+
         self.continue_button.clicked.connect(self.nextPage)
         self.continue_button_2.clicked.connect(self.nextPage)
         self.continue_button_3.clicked.connect(self.nextPage)
@@ -86,6 +89,19 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         backend.get_train_data()
     def stop_train(self):
         backend.stop_train()
+        self.counter+=1
+        if(self.counter == 1):
+            make_visible(self.textBrowser_1)
+        elif(self.counter == 2):
+            make_visible(self.textBrowser_2)
+        elif(self.counter == 3):
+            make_visible(self.textBrowser_3)
+        elif(self.counter == 4):
+            make_visible(self.textBrowser_4)
+        elif(self.counter == 5):
+            make_visible(self.textBrowser_5)
+        elif(self.counter == 6):
+            make_visible(self.textBrowser_6)
     def stop_test(self):
         backend.stop_test()
     def nextPage(self):
