@@ -40,11 +40,11 @@ Make sure pip is on your computer even if you are using Windows, you can run it 
 * pip install sklearn
 
 ##### Kinect
+* Need a Windows OS to run
 [Kinect Developer's Toolkit](https://www.microsoft.com/en-gb/download/details.aspx?id=40276)
 [Kinect SDK](https://www.microsoft.com/en-gb/download/details.aspx?id=40278)
 
 ##### Execute the Following:
-* `python-gui/SportsTutor/main.py` (Macintosh)
-* `SerialPortReading/SerialPortReading.pde` (Macintosh)
-* `processingMerge/processingMerge.pde` (Macinsoth)
-* `SkeletonBasics-D2D/Debug/SkeletonBasics-D2D.exe` (Windows)
+* `python-gui/SportsTutor/main.py`
+* `SerialPortReading/SerialPortReading.pde`
+* `processingMerge/processingMerge.pde`
