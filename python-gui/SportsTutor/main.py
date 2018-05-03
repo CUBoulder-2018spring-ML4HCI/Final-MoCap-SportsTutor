@@ -117,6 +117,13 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def newUserClicked(self):
         self.stackedWidget.setCurrentIndex(1)
 
+def make_visible(obj):
+      obj.setStyleSheet("""
+       color: black;
+       """
+    )
+
+
 def change_color(obj):
     obj.setStyleSheet("""
            font: 20pt "DIN 2014";
