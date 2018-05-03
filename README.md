@@ -14,7 +14,11 @@ without their coach present and provide feedback and tips on improving form and 
 
 ## Setup
 ### Hardware
-* Microbit
+* 3 Microbits
+* 2 Batteries
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * Load `microbit/microbit-receiver.hex`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * Load `microbit/microbit-transmit1.hex`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * Load `microbit/microbit-transmit2.hex`
 * Kinect
 
 ### Software
