@@ -68,6 +68,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
         backend.get_test_data()
+        
     def stop_user(self):
         backend.stop_test()
         body_part = str(backend.get_largest_distance())

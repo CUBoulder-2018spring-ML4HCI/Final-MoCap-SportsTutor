@@ -98,6 +98,7 @@ def get_test_data():
 def read_pipe(PIPE):
 	#global PIPE
 	line = PIPE.readline()
+	print "line: " + line
 	if not(len(line) == 0):
 		line_arr = line.split(",")
 		line_arr = line_arr[:len(line_arr)-1]
@@ -230,7 +231,7 @@ def get_largest_distance():
 			return skeletal_index[0]
 	except Exception as e:
 		print(e.__str__())
-		return skeletal_index[0]
+		return skeletal_index[random.randint(0,23)]
 
 def get_best_shot():
 	global training_samples
