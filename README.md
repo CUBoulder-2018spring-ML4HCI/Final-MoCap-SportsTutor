@@ -38,7 +38,7 @@ Make sure pip is on your computer even if you are using Windows, you can run it 
 * pip install dtw
 * pip install sklearn
 
-##### 
+##### Kinect
 [Kinect Developer's Toolkit](https://www.microsoft.com/en-gb/download/details.aspx?id=40276)
 [Kinect SDK](https://www.microsoft.com/en-gb/download/details.aspx?id=40278)
 
@@ -46,4 +46,3 @@ Make sure pip is on your computer even if you are using Windows, you can run it 
 * `python-gui/SportsTutor/main.py`
 * `SerialPortReading/SerialPortReading.pde`
 * `processingMerge/processingMerge.pde`
-
