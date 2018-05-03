@@ -49,8 +49,8 @@ Download on a Windows OS:
 ##### On Macintosh:
 * `setup` (This is the script to setup the pipe queue, it shouldn't output anything)
 * `python-gui/SportsTutor/main.py`
-* `SerialPortReading/SerialPortReading.pde`
+* `SerialPortReading/zSerialPortReading.pde`
 * `processingMerge/processingMerge.pde`
 
 ##### On Windows:
-* `SkeletonBasics-D2D/Debug/SkeletonBasics-D2D.exe` (Run this on Windows)
+* `SkeletonBasics-D2D/Debug/SkeletonBasics-D2D.exe`
