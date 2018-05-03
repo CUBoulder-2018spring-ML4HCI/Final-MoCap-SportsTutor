@@ -21,7 +21,11 @@ without their coach present and provide feedback and tips on improving form and 
 * Load `microbit/microbit-transmit2.hex`
 
 ##### Kinect
-* Place black backdrop behind you for a better read
+* Place black backdrop behind you for a better read.
+* Connect Kinect to Windows computer.
+* Ensure you have installed the Kinect packages listed below in software dependencies.
+* Edit the skeleton.config folder found in `SkeletonBasics-D2D/Debug/skeleton.config` to hold the IP address of your Macintosh system.
+* Execute `SkeletonBasics-D2D/Debug/SkeletonBasics-D2D.exe`
 
 ### Software
 ##### Dependencies include:

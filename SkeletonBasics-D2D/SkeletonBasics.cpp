@@ -129,7 +129,7 @@ int CSkeletonBasics::Run(HINSTANCE hInstance, int nCmdShow)
         reinterpret_cast<LPARAM>(this));
 
     // Show window
-    //ShowWindow(hWndApp, nCmdShow);
+	//ShowWindow(hWndApp, nCmdShow);
 
     const int eventCount = 1;
     HANDLE hEvents[eventCount];
