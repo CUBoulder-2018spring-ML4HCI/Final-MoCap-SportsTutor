@@ -28,7 +28,19 @@ without their coach present and provide feedback and tips on improving form and 
 * Execute `SkeletonBasics-D2D/Debug/SkeletonBasics-D2D.exe`
 
 ### Software
-##### Dependencies include:
+#### Dependencies include:
+##### GUI
+Make sure pip is on your computer even if you are using Windows, you can run it from the cmd app if you choose "run as administrator."
+
+* pip install PyQt5
+* pip install SIP
+* pip install numpy
+* pip install dtw
+* pip install sklearn
+
+##### 
+[Kinect Developer's Toolkit](https://www.microsoft.com/en-gb/download/details.aspx?id=40276)
+[Kinect SDK](https://www.microsoft.com/en-gb/download/details.aspx?id=40278)
 
 ##### Execute the Following:
 * `python-gui/SportsTutor/main.py`
