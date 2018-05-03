@@ -47,7 +47,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
         self.recordButton.pressed.connect(self.record)
-        self.recordButton.released.connect(self.stop_train)
+        #self.recordButton.released.connect(self.stop_train)
         self.stopRecording.pressed.connect(self.stop_train)
         self.runUser.pressed.connect(self.run_user)
         self.stopUser.pressed.connect(self.stop_user)
@@ -66,6 +66,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         backend.get_test_data()
     def stop_user(self):
+        backend.stop_test()
         body_part = str(backend.get_largest_distance())
         if "SHOULDER" in body_part:# set this to when we want to change body shoulder
             change_color(self.bodyShoulder)
