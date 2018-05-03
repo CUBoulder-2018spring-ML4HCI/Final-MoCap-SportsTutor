@@ -119,7 +119,9 @@ Only shared access memory is the boolean
 def poll(q):
 	# global GET_DATA
 	# global WHICH_DATA
+	print("pre pipe")
 	PIPE = open("/tmp/un_pipe", 'r')
+	print("post pipe")
 	get_data = False
 	which_data = 'train'
 	while True:
@@ -129,7 +131,7 @@ def poll(q):
 			which_data = q_tuple[1]
 			print ("got data from queue: ", (get_data, which_data))
 		except:
-			pass
+			continue
 		if get_data:
 			global testing_samples
 			global training_samples
