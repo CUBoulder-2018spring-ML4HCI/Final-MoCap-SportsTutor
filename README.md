@@ -46,6 +46,7 @@ Need a Windows OS to run:
 * [Kinect SDK](https://www.microsoft.com/en-gb/download/details.aspx?id=40278)
 
 ##### Execute the Following:
+* `setup` (This is to setup the pipe queue, it shouldn't output anything)
 * `python-gui/SportsTutor/main.py`
 * `SerialPortReading/SerialPortReading.pde`
 * `processingMerge/processingMerge.pde`
