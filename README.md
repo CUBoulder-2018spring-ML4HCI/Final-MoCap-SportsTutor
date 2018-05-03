@@ -41,8 +41,9 @@ Make sure pip is on your computer even if you are using Windows, you can run it 
 
 ##### Kinect
 Need a Windows OS to run:
-[Kinect Developer's Toolkit](https://www.microsoft.com/en-gb/download/details.aspx?id=40276)
-[Kinect SDK](https://www.microsoft.com/en-gb/download/details.aspx?id=40278)
+
+* [Kinect Developer's Toolkit](https://www.microsoft.com/en-gb/download/details.aspx?id=40276)
+* [Kinect SDK](https://www.microsoft.com/en-gb/download/details.aspx?id=40278)
 
 ##### Execute the Following:
 * `python-gui/SportsTutor/main.py`
