@@ -10,7 +10,9 @@ Designed and built by
 For CSCI-4830 with Prof. Ben Shapiro and Asst. Prof. William Temple  
 ## Summary
 Using data collected during in-person coaching sessions with a profesisonal sports coach, our system is able to analyze the movements of a user
-without their coach present and provide feedback and tips on improving form and motion. View our full project proposal at `docs/proposal.pdf`.
+without their coach present and provide feedback and tips on improving form and motion. 
+View the old proposal at `docs/proposal.pdf`.
+The final writeup is under 'Final Report.pdf.' It can also be viewed on Google drive: https://docs.google.com/document/d/1DGI1_4p1ND0ARFtuwr5fbOJy_Q4uB8R5h4yWdvU7aSI/edit?usp=sharing
 
 Demo-video: https://www.youtube.com/watch?v=YrVwfPZBLRc&feature=youtu.be [PLEASE NOTE: The video file was too large to upload to GitHub, sorry for any inconvenience]
 ## Setup
